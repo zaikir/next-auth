@@ -9,13 +9,13 @@ CREATE TABLE verification_token
   PRIMARY KEY (identifier, token)
 );
 
-CREATE TABLE accounts
+CREATE TABLE account
 (
   id SERIAL,
-  "userId" INTEGER NOT NULL,
+  user_id INTEGER NOT NULL,
   type VARCHAR(255) NOT NULL,
   provider VARCHAR(255) NOT NULL,
-  "providerAccountId" VARCHAR(255) NOT NULL,
+  provider_account_id VARCHAR(255) NOT NULL,
   refresh_token TEXT,
   access_token TEXT,
   expires_at BIGINT,
@@ -27,23 +27,22 @@ CREATE TABLE accounts
   PRIMARY KEY (id)
 );
 
-CREATE TABLE sessions
+CREATE TABLE session
 (
   id SERIAL,
-  "userId" INTEGER NOT NULL,
+  user_id INTEGER NOT NULL,
   expires TIMESTAMPTZ NOT NULL,
-  "sessionToken" VARCHAR(255) NOT NULL,
+  session_token VARCHAR(255) NOT NULL,
 
   PRIMARY KEY (id)
 );
 
-CREATE TABLE users
+CREATE TABLE user
 (
   id SERIAL,
   name VARCHAR(255),
   email VARCHAR(255),
-  "emailVerified" TIMESTAMPTZ,
-  image TEXT,
+  email_verified_at TIMESTAMPTZ,
 
   PRIMARY KEY (id)
 );
