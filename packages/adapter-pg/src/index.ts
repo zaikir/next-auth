@@ -20,7 +20,7 @@ import type {
   AdapterUser,
   VerificationToken,
   AdapterSession,
-} from "@auth/core/adapters"
+} from "next-auth/adapters"
 import type { Pool } from "pg"
 
 export function mapExpiresAt(account: any): any {
